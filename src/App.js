@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import CanvasComponent from "./CanvasComponent"; // Assuming the CanvasComponent is in a separate file
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center", // Center horizontally
+        alignItems: "center", // Center vertically
+        height: "100vh", // Use the full viewport height
+      }}
+    >
+      <CanvasComponent customCellContent="1st-2nd" />
+      <div style={{ width: "10px" }} />
+      <CanvasComponent customCellContent="2nd-2nd" />
+      <div style={{ width: "10px" }} />
+      <CanvasComponent customCellContent="1st-3rd" />
+      <div style={{ width: "10px" }} />
+      <CanvasComponent customCellContent="2nd-3rd" />
     </div>
   );
-}
+};
 
 export default App;
