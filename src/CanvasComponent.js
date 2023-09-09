@@ -105,21 +105,21 @@ const CanvasComponent = ({ customCellContent, scale, setScale }) => {
           }
         } else if (col === 3) {
           // Fourth column
-          if (canvasRef.current.height > 550) {
+          if (canvasRef.current.height > 420) {
             ctx.font = "45px Arial";
             ctx.fillText("O", x + colWidth / 1.6, y + rowHeight / 1.7);
           } else {
-            ctx.font = "45px Arial";
-            ctx.fillText("O", x + colWidth / 2, y + rowHeight / 2);
+            ctx.font = "35px Arial";
+            ctx.fillText("O", x + colWidth / 2, y + rowHeight / 1.8);
           }
         }
       }
     }
   }, [customCellContent, scale]);
 
-  useEffect(() => {
-    console.log("Canvas Height:", canvasRef.current.height);
-  });
+  // useEffect(() => {
+  //   console.log("Canvas Height:", canvasRef.current.height);
+  // });
 
   return (
     <div>
