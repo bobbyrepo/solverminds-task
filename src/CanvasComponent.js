@@ -1,8 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 
-const CanvasComponent = ({ customCellContent }) => {
+const CanvasComponent = ({ customCellContent, scale, setScale }) => {
   const canvasRef = useRef(null);
-  const [scale, setScale] = useState(1);
+  // const [scale, setScale] = useState(1);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -117,28 +117,14 @@ const CanvasComponent = ({ customCellContent }) => {
     }
   }, [customCellContent, scale]);
 
-  const handleWheel = (e) => {
-    e.preventDefault();
-    const newScale = scale - e.deltaY * 0.0001; // Adjust the scaleon scroll
-    const newHeight = canvasRef.current.height * newScale;
-
-    // Limit the scale and set the minimum height
-    if (newScale >= 0.1 && newHeight >= 200) {
-      setScale(Math.min(1, newScale));
-    }
-  };
-
   useEffect(() => {
     console.log("Canvas Height:", canvasRef.current.height);
   });
 
   return (
-    <canvas
-      ref={canvasRef}
-      width={300 * scale}
-      height={700 * scale}
-      onWheel={handleWheel}
-    />
+    <div>
+      <canvas ref={canvasRef} width={300 * scale} height={700 * scale} />
+    </div>
   );
 };
 
